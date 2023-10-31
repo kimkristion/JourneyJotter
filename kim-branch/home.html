@@ -14,17 +14,19 @@
         <h1>JourneyJotter</h1>
         <nav class="nav-bar">
             <ul>
-                <li>Past Logs</li>
-                <li>Favorite Logs</li>
-                <li>Poor Reviews</li>
+                <li href="#">Past Logs</li>
+                <li href="#">Favorite Logs</li>
+                <li href="#">Poor Reviews</li>
             </ul>
         </nav>
     </header>
 
-    <gmp-map center="40.12150192260742,-100.45039367675781" zoom="4" map-id="DEMO_MAP_ID">
-        <gmp-advanced-marker position="40.12150192260742,-100.45039367675781" title="My location">
-        </gmp-advanced-marker>
-    </gmp-map>
+    <div id="map">
+        <gmp-map center="40.12150192260742,-100.45039367675781" zoom="4" map-id="DEMO_MAP_ID">
+            <gmp-advanced-marker position="40.12150192260742,-100.45039367675781" title="My location">
+            </gmp-advanced-marker>
+        </gmp-map>
+    </div>
 
 </body>
 <script src="home.js"></script>
