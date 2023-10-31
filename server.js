@@ -13,11 +13,12 @@ app.use(express.json());
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.use(express.static(path.join(__dirname, 'jack-home-page')));
-app.use(require('./jack-home-page/controllers/home-routes'));
+app.use(require('./controllers/home-routes'));
 
 const db = mysql.createConnection(
     {
-        host: 'process.env.localhost',
+
+        host: process.env.local_host,
         user: process.env.DB_USER,
         password: process.env.DB_PASSWORD,
         database: process.env.DB_NAME
@@ -39,7 +40,7 @@ db.connect((err) => {
         return;
     }
     console.log('Connected to the database');
-    
+
 });
 
 db.on('error', (err) => {
