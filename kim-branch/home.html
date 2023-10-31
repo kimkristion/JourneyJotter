@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkUkBVZorbjWzE4Wom0x1iQyFWkrzG74g&callback=console.debug&libraries=maps,marker&v=beta">
+    </script>
+    <link rel="stylesheet" type="text/css" href="home.css">
+    <title>JourneyJotter</title>
+</head>
+
+<body>
+    <header class="business-name">
+        <h1>JourneyJotter</h1>
+        <nav class="nav-bar">
+            <ul>
+                <li href="#">Past Logs</li>
+                <li href="#">Favorite Logs</li>
+                <li href="#">Poor Reviews</li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="map">
+        <gmp-map center="40.12150192260742,-100.45039367675781" zoom="4" map-id="DEMO_MAP_ID">
+            <gmp-advanced-marker position="40.12150192260742,-100.45039367675781" title="My location">
+            </gmp-advanced-marker>
+        </gmp-map>
+    </div>
+
+</body>
+<script src="home.js"></script>
+
+</html>
+
+
+
+
+
+
+

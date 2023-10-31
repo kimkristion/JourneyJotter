@@ -1,0 +1,67 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+
+
+header, nav {
+    margin: 0;
+    padding: 0;
+    height: 10%;
+}
+
+header {
+    background-color: #4285F4;
+    color: #F3F0CA;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+header h1 {
+    padding-left: 10rem;
+}
+
+.nav-bar ul {
+    list-style-type: none;
+    display: flex;
+    padding-right: 10rem;
+    
+}
+
+.nav-bar li {
+    padding: 10px;
+    transition: underline 0.3s;
+}
+
+.nav-bar li:hover {
+    animation: scaleText 0.3s;
+}
+
+
+
+
+
+
+
+
+
+/* animation for navbar */
+@keyframes scaleText {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.3);
+    }
+}
