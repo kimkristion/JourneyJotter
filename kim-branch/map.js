@@ -2,15 +2,20 @@ const APIKey = 'AIzaSyBkUkBVZorbjWzE4Wom0x1iQyFWkrzG74g';
 const URL = `https://maps.googleapis.com/maps/api/js?key${APIKey}&callback=initMap&libraries=maps,marker&v=beta`;
 
 let map, infoWindow;
-var markers = []
+var markers = [];
+const tooltip = document.getElementById('tooltip');
+
+const contentString ='omg is this DisneyLand'
+
+
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {
-            lat: -34.397,
-            lng: 150.644
+            lat:  33.8121,
+            lng: -117.9190
         },
-        zoom: 6,
+        zoom: 12,
     });
     infoWindow = new google.maps.InfoWindow();
 
@@ -46,8 +51,20 @@ function initMap() {
       position: event.latLng,
       map: map,
       title: 'New Marker'
-    }))
-  })
+    }));
+
+    markers.forEach(function(marker) {
+      marker.addListener('click', () => {
+        marker.setMap(null);
+  
+        const index = markers.indexOf(marker);
+        if(index > -1) {
+          markers.splice(index, 1)
+        }
+      });
+    });
+  });
+
 };
 
 
@@ -60,4 +77,13 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   );
   infoWindow.open(map);
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  tooltip.style.display = 'block';
+
+  setTimeout(function() {
+    tooltip.style.display = 'none'
+  }, 3000)
+})
+
 google.maps.event.addDomListener(window, 'load', initMap);
