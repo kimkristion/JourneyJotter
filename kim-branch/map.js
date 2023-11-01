@@ -2,6 +2,7 @@ const APIKey = 'AIzaSyBkUkBVZorbjWzE4Wom0x1iQyFWkrzG74g';
 const URL = `https://maps.googleapis.com/maps/api/js?key${APIKey}&callback=initMap&libraries=maps,marker&v=beta`;
 
 let map, infoWindow;
+var markers = []
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -39,7 +40,16 @@ function initMap() {
       handleLocationError(false, infoWindow, map.getCenter());
     }
   });
-}
+
+  map.addListener('click', function(event) {
+    markers.push(new google.maps.Marker({
+      position: event.latLng,
+      map: map,
+      title: 'New Marker'
+    }))
+  })
+};
+
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
@@ -50,5 +60,4 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   );
   infoWindow.open(map);
 }
-
-initMap();
+google.maps.event.addDomListener(window, 'load', initMap);
