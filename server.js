@@ -34,6 +34,19 @@ app.listen(PORT, () => {
     console.log(`Server running on: http://localhost:${PORT}`);
 });
 
+app.post('/api/users', async (req, res) => {
+    try {
+        const { username, email, password } = req.body;
+        const query = 'INSERT INTO users (username, email, password) VALUES (?, ?, ?)';
+        await db.query(query, [username, email, password]);
+
+        res.status(200).json({ message: 'User registered successfully' });
+    } catch (error) {
+        console.error('Error registering user:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
 db.connect((err) => {
     if (err) {
         console.error('Error connecting to the database:', err);
