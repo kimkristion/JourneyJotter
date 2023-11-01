@@ -1,0 +1,45 @@
+:root{
+    --main-color: #192655;
+    --secondary-color: #3876BF;
+    --third-color: #E1AA74;
+    --fourth-color: #F3F0CA;
+}
+#main{
+    width: 66vw;
+    margin: 0 auto;
+}
+
+#main-search-bar{
+    text-align: center;
+    margin: 10px;
+}
+
+#input-bar{
+    width: 66vw;
+    height: 50px;
+    font-size: 20px;
+    
+}
+
+#homepage-nav{
+    background-color: var(--third-color);
+    margin: 2px;
+}
+
+.nav-link{
+    color: var(--secondary-color);
+    font-weight: 500 !important;
+}
+
+header {
+    text-align: center;
+    background-color: #3498db;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 2em;
+    color: #ffffff;
+}
