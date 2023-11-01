@@ -86,4 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 3000)
 })
 
-google.maps.event.addDomListener(window, 'load', initMap);
+window.onload = () => {
+  initMap();
+}
