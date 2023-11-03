@@ -14,6 +14,7 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.use(express.static(path.join(__dirname, './public')));
 app.use(require('./controllers/home-routes'));
+app.use(require('./controllers/login-routes'));
 
 const db = mysql.createConnection(
     {
