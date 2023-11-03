@@ -1,5 +1,4 @@
 const express = require('express');
-const mysql = require('mysql2');
 require('dotenv').config();
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({});
@@ -16,16 +15,7 @@ app.use(express.static(path.join(__dirname, './public')));
 app.use(require('./controllers/home-routes'));
 app.use(require('./controllers/login-routes'));
 
-const db = mysql.createConnection(
-    {
-
-        host: process.env.local_host,
-        user: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
-        database: process.env.DB_NAME
-    },
-    console.log(`Connected to database`)
-);
+const db = require('./config/connection');
 
 app.use((req, res) => {
     res.status(404).end();
