@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     signupForm.addEventListener("submit", async function (event) {
       event.preventDefault();
   
-    //   const usernameInput = document.getElementById("username-signup").value;
+      const usernameInput = document.getElementById("username-signup").value;
       const emailInput = document.getElementById("email-signup").value;
       const passwordInput = document.getElementById("password-signup").value;
   
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-        //   username: usernameInput,
+          username: usernameInput,
           email: emailInput,
           password: passwordInput,
         }),
