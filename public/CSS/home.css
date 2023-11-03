@@ -1,48 +1,3 @@
-/*:root{
-    --main-color: #192655;
-    --secondary-color: #3876BF;
-    --third-color: #E1AA74;
-    --fourth-color: #F3F0CA;
-}
-#main{
-    width: 66vw;
-    margin: 0 auto;
-}
-
-#main-search-bar{
-    text-align: center;
-    margin: 10px;
-}
-
-#input-bar{
-    width: 66vw;
-    height: 50px;
-    font-size: 20px;
-
-}
-
-#homepage-nav{
-    background-color: var(--third-color);
-    margin: 2px;
-}
-
-.nav-link{
-    color: var(--secondary-color);
-    font-weight: 500 !important;
-}
-
-header {
-    text-align: center;
-    background-color: #3498db;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-h1 {
-    font-size: 2em;
-    color: #ffffff;
-}*/
-
 /* Reset some default styles */
 * {
     margin: 0;
@@ -59,7 +14,7 @@ h1 {
 
 body {
     font-family: Arial, sans-serif;
-    background: url('your-background-image.jpg') center center fixed;
+    /*background: url('your-background-image.jpg') center center fixed;*/
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -90,7 +45,7 @@ body {
 
 #homepage-nav {
     background-color: #fff;
-    padding: 10px;
+    padding: 10px 0; /* Adjust the vertical padding */
     border-radius: 5px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -124,4 +79,23 @@ h1 {
     font-size: 2.5em;
     color: #fff;
 }
+.bar {
+    width: 25px; /* Adjust the width as needed */
+    height: 3px; /* Adjust the height as needed */
+    background-color: var(--main-color); /* Color of the bars */
+    margin: 4px 0;
+}
+#hamburger{
+    display: none;
+}
 
+@media screen and (max-width: 992px) {
+    #hamburger {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    #nav-list {
+        display: none; /* Initially hide the list for smaller screens */
+    }
+}
