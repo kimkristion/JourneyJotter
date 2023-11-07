@@ -1,13 +1,13 @@
+// Key for Google Maps API
 const APIKey = 'AIzaSyBkUkBVZorbjWzE4Wom0x1iQyFWkrzG74g';
-const URL = `https://maps.googleapis.com/maps/api/js?key${APIKey}&callback=initMap&libraries=maps,marker&v=beta`;
+
+// Construct the Google Maps API URL with the key and necessary libraries
+const URL = `https://maps.googleapis.com/maps/api/js?key=${APIKey}&callback=initMap&libraries=maps,marker&v=beta`;
 
 let map, infoWindow;
 var markers = [];
+var webpageBody = document.getElementsByTagName('main')[0];
 const tooltip = document.getElementById('tooltip');
-
-const contentString ='omg is this DisneyLand'
-
-
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -17,6 +17,17 @@ function initMap() {
         },
         zoom: 12,
     });
+
+    var modalMap = new google.maps.Map(document.getElementById('modalMap'), {
+      center: {
+        lat: 33.8121,
+        lng: -117.9190
+      },
+      zoom: 12,
+      draggable: false,
+      fullscreenControl: false,
+    });
+
     infoWindow = new google.maps.InfoWindow();
 
   const locationButton = document.createElement("button");
@@ -46,7 +57,14 @@ function initMap() {
     }
   });
 
+  function openModal() {
+    document.getElementById('themodal').style.display = 'block';
+    webpageBody.classList.add('blur-background');
+    modalMap;
+  };
+
   map.addListener('click', function(event) {
+    openModal();
     markers.push(new google.maps.Marker({
       position: event.latLng,
       map: map,
@@ -89,3 +107,12 @@ document.addEventListener('DOMContentLoaded', () => {
 window.onload = () => {
   initMap();
 }
+
+const stars = document.querySelectorAll(".stars i");
+stars.forEach((star, index1) => {
+  star.addEventListener("click", () => {
+    stars.forEach((star, index2) => {
+      index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
+    });
+  });
+});
