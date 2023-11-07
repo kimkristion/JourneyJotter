@@ -1,0 +1,55 @@
+<main>
+    <div class="container">
+      <header>
+          <h1>JourneyJotter</h1>
+          <nav>
+              <ul>
+                  <li href="#">Home</li>
+                  <li class="currentPage">Map</li>
+                  <li href="#">Past Logs</li>
+                  <li href="#">Favorite Logs</li>
+                  <li href="#">Poor Reviews</li>
+              </ul>
+          </nav>
+      </header>
+      <div class="contentContainer">
+          <h2>Map Your Emotions</h2>
+          <p>an interactive platform where your feelings meet the world map. Explore, click, and express your emotions about any location, turning your journeys into vibrant stories. </p>
+          <div id="map"></div> <!-- Google Maps will be rendered here -->
+      </div>
+      <button class="start" id="startBtn">Get Started</button>
+  </main>
+        
+        <!-- modal -->
+        <div id="themodal" class="modal" style="display: none;">
+            <div class="thecontent">
+              <div class="left-side">
+                <div id="modalMap"></div> <!-- Google Maps within the modal will be rendered -->
+              </div>
+              <div class="right-side">
+                <form id="foodForm">
+                  <input type="text" placeholder="How do you feel about this location..." id="userInput">
+                  <input type="text" placeholder="Describe your experience in a few words..." id="userInput2">
+                  <div class="rating-box">
+                    <header>How was your experience?</header>
+                    <div class="stars">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                    </div>
+                  </div>
+                  <button type="submit" id="modalSubmit">Submit</button>
+                </form>
+              </div>
+              <h3 onclick="closeModal()" class="closeBtn">&times</h3> <!-- Close modal for the modal -->
+            </div>
+          </div>
+    </div>
+
+    <!-- In progress: A tooltip, likley for instructions or information -->
+    <!-- <div id="tooltip">Click on the map to add a marker</div> -->
+
+</body>
+<script src="/js/map.js"></script> <!-- JavaScript file handling -->

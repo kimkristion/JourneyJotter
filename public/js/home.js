@@ -73,3 +73,9 @@ window.addEventListener('resize', reset);
 
 // Call reset function on page load to set the initial state
 reset();
+
+const submitButton = document.getElementById('submit');
+submit.addEventListener('click', () => {
+    window.location.href = "/map";
+});
+

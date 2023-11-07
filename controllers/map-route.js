@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
-router.get('/home', async (req, res) => {
-    res.render('home');
+router.get('/map', async (req, res) => {
+    res.render('map');
 });
 
 module.exports = router;

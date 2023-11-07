@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 // GET route to render the login form
-router.get('/login', async (req, res) => {
+router.get('/', async (req, res) => {
     res.render('login');
 });
 
