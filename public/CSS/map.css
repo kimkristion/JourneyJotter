@@ -213,22 +213,37 @@ li:hover::after {
     width: 100%;
   }
   
-  #userInput {
-    background-position: 1%;
+  #experience {
     padding-left: 1rem;
-    background-repeat: no-repeat;
-    background-size: 2.2rem;
     padding: 10px 22px 10px 44px;
   }
   
-  #userInput2 {
-    background-position: 1%;
-    background-image: url(../images/thoughts.jpg);
+  #emotions {
     padding-left: 1rem;
-    background-repeat: no-repeat;
-    background-size: 2.2rem;
     padding: 10px 22px 10px 44px;
   }
+
+  #memories {
+    padding-left: 1rem;
+    padding: 10px 22px 10px 44px;
+  }
+ 
+#title {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid black;
+  background: none;
+  outline: none;
+  font-size: 2rem;
+}
+
+#title::placeholder {
+  color: black;
+}
+
   
   #modalSubmit {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -246,6 +261,12 @@ li:hover::after {
     color: var(--base);
     text-decoration: none;
   }
+
+  #closeBtn {
+    padding-right: .5rem;
+    cursor: pointer;
+  }
+  
 
 .rating-box {
   display: flex;

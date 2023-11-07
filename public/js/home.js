@@ -41,55 +41,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     setTimeout(typeText, 0); // Start typing the first message immediately
 });
 
-/*const hamburger = document.querySelector('#hamburger');
-const navList = document.querySelector('#nav-list');
-function toggleNav() {
-    if (window.innerWidth <= 992) {
-        const navListStyle = window.getComputedStyle(navList);
-        if (navListStyle.display === 'none') {
-            navList.style.display = 'block';
-        } else if (navList.style.display == 'block'){
-            navList.style.display = 'none';
-        }
-    }
-}
-function reset(){
-    if (window.innerWidth > 992 && navList.style.display == 'none'){
-        navList.style.display = 'flex';
-    }
-}
-hamburger.addEventListener('click', toggleNav);
-window.addEventListener('resize', reset());*/
-/*const hamburger = document.querySelector('#hamburger');
-const navList = document.querySelector('#nav-list');
-let navListVisible = true; // Initially set to true for larger screens
-
-function toggleNav() {
-    if (window.innerWidth <= 992) {
-        if (navListVisible) {
-            navList.style.display = 'none';
-            navListVisible = false;
-        } else {
-            navList.style.display = 'block';
-            navListVisible = true;
-        }
-    }
-}
-
-function reset() {
-    if (window.innerWidth > 992) {
-        navList.style.display = 'flex';
-        navListVisible = true;
-    }
-}
-
-hamburger.addEventListener('click', toggleNav);
-window.addEventListener('resize', reset);
-
-// Initial check for screen size
-reset();
-
-*/
 const hamburger = document.querySelector('#hamburger');
 const navList = document.querySelector('#nav-list');
 let navListVisible = true; // Initially set to true for larger screens

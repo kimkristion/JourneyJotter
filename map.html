@@ -43,10 +43,12 @@
               </div>
               <div class="right-side">
                 <form id="foodForm">
-                  <input type="text" placeholder="How do you feel about this location..." id="userInput">
-                  <input type="text" placeholder="Describe your experience in a few words..." id="userInput2">
+                  <input type="text" placeholder="Title" id="title">
+                  <input type="text" placeholder="How would you rate your overall experience?" id="experience">
+                  <input type="text" placeholder="Describe what emotions you felt here? " id="emotions">
+                  <input type="text" placeholder="What was the most memorable part of your visit?" id="memories">
                   <div class="rating-box">
-                    <header>How was your experience?</header>
+                    <header>Rate your experience</header>
                     <div class="stars">
                       <i class="fa-solid fa-star"></i>
                       <i class="fa-solid fa-star"></i>
@@ -58,7 +60,7 @@
                   <button type="submit" id="modalSubmit">Submit</button>
                 </form>
               </div>
-              <h3 onclick="closeModal()" class="closeBtn">&times</h3> <!-- Close modal for the modal -->
+              <h3 onclick="closeModal()" id="closeBtn">&times</h3> <!-- Close modal for the modal -->
             </div>
           </div>
     </div>
