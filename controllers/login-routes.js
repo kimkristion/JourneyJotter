@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const db = require('../config/connection'); // Adjust the import path as needed
+const sequelize = require('../config/connection'); // Adjust the import path as needed
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
@@ -9,34 +9,46 @@ router.get('/login', async (req, res) => {
 });
 
 // POST route to handle form submissions
-router.post('/login', (req, res) => {
-    const { username, email, password } = req.body;
-    const query = 'INSERT INTO users (username, email, password) VALUES (?, ?, ?)';
+router.post('/login', async (req, res) => {
+    try {
+        const userData = await User.findOne({ where: { email: req.body.email } });
 
-    // Hash and salt the password using bcrypt
-    bcrypt.hash(password, saltRounds, (err, hashedPassword) => {
-        if (err) {
-            console.error('Error hashing password:', err);
-            res.status(500).json({ error: 'Internal server error' });
-        } else {
-            new Promise((resolve, reject) => {
-                db.execute(query, [username, email, hashedPassword], (dbErr, results) => {
-                    if (dbErr) {
-                        reject(dbErr);
-                    } else {
-                        resolve(results);
-                    }
-                });
-            })
-                .then(() => {
-                    res.status(200).json({ message: 'User registered successfully' });
-                })
-                .catch((error) => {
-                    console.error('Error registering user:', error);
-                    res.status(500).json({ error: 'Internal server error' });
-                });
+        if (!userData) {
+            res
+                .status(400)
+                .json({ message: 'Incorrect email or password, please try again' });
+            return;
         }
-    });
+
+        const validPassword = await userData.checkPassword(req.body.password);
+
+        if (!validPassword) {
+            res
+                .status(400)
+                .json({ message: 'Incorrect email or password, please try again' });
+            return;
+        }
+
+        req.session.save(() => {
+            req.session.user_id = userData.id;
+            req.session.logged_in = true;
+
+            res.json({ user: userData, message: 'You are now logged in!' });
+        });
+
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
+router.post('/logout', (req, res) => {
+    if (req.session.logged_in) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
+    }
 });
 
 module.exports = router;
