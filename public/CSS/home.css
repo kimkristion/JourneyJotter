@@ -14,7 +14,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    /*background: url('your-background-image.jpg') center center fixed;*/
+    background: linear-gradient(to bottom, #2979FF, #55C9FF);
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -42,7 +42,22 @@ body {
     border: 1px solid var(--main-color);
     border-radius: 5px;
 }
+#submit {
+    /* New styles for the button */
+    display: inline-block;
+    background-color: var(--main-color); /* Use the main color as the background color */
+    color: #fff; /* Text color */
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth color transition on hover */
+}
 
+#submit:hover {
+    background-color: var(--secondary-color); /* Change the background color on hover to the secondary color */
+}
 #homepage-nav {
     background-color: #fff;
     padding: 10px 0; /* Adjust the vertical padding */

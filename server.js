@@ -15,6 +15,7 @@ app.use(express.static(path.join(__dirname, './public')));
 app.use(require('./controllers/home-routes'));
 app.use(require('./controllers/login-routes'));
 app.use(require('./controllers/logpage-routes'));
+app.use(require('./controllers/map-route'));
 
 const sequelize = require('./config/connection');
 
