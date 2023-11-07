@@ -40,7 +40,13 @@ video {
       height: 3em; /* Adjust the final height to center the text as needed */
     }
   }
-
+  
+@media (max-width: 768px) {
+    .unique-animation {
+        font-size: 2.6rem; /* Adjust font size for smaller screens */
+        letter-spacing: 5px; /* Adjust letter spacing for smaller screens */
+    }
+}
   .text{
     font-family: 'playfair display';
     text-align: center;
@@ -136,4 +142,15 @@ label {
 .btn:hover {
     background-color: gold;
     border-radius: 3px solid gold;
+}
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+        align-items: center;
+    }
+
+    .login-card {
+        width: 90%; /* Adjust the width for smaller screens */
+    }
 }

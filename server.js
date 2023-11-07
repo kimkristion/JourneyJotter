@@ -15,25 +15,12 @@ app.use(express.static(path.join(__dirname, './public')));
 app.use(require('./controllers/home-routes'));
 app.use(require('./controllers/login-routes'));
 
-const db = require('./config/connection');
+const sequelize = require('./config/connection');
 
 app.use((req, res) => {
     res.status(404).end();
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on: http://localhost:${PORT}`);
-});
-
-db.connect((err) => {
-    if (err) {
-        console.error('Error connecting to the database:', err);
-        return;
-    }
-    console.log('Connected to the database');
-
-});
-
-db.on('error', (err) => {
-    console.error('Database connection error:', err);
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => console.log('Now listening'));
 });
