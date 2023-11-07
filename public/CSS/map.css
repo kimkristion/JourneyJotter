@@ -113,16 +113,59 @@ li {
     background: rgb(235, 235, 235);
 }
 
+.controls {
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  margin-top: 10px;
+  outline: none;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px; 
+}
+
+.controls:focus {
+  border-color: #4d90fe;
+}
+
+.controls::placeholder {
+  color: #A0A0A0;
+}
+
+.controls {
+  color: #000;
+}
+
 /* Tooltip */
 #tooltip {
-    position: absolute;
-    top: 20px; 
-    right: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    display: none;
+  position: fixed;
+  top: 20px; /* Adjust the distance from the top */
+  right: 20px; /* Adjust the distance from the right */
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  display: none; /* Initially hidden */
+}
+
+/* Styling for text color, font size, etc. */
+#tooltip {
+  font-size: 14px;
+}
+
+/* Animation effect for tooltip */
+#tooltip.active {
+  display: block;
+  animation: fadein 0.5s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 li {
@@ -155,13 +198,6 @@ li:hover::after {
   
   .thecontent span {
     padding: 1rem;
-  }
-  
-  #nutrition-button {
-    padding: 0.5rem 1.5rem;
-    border-radius: 0.2rem;
-    cursor: pointer;
-    border: 0.5px solid #F7E7CE;
   }
   
   #openModal {
@@ -300,6 +336,39 @@ li:hover::after {
 
   .start i:hover {
     color: red;
+  }
+
+  footer {
+    position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+  }
+  
+  /* Footer content styles */
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Footer links styles */
+  .footer-links {
+    list-style: none;
+    display: flex;
+    margin-top: 10px;
+  }
+  
+  .footer-links li {
+    margin-right: 15px;
+  }
+  
+  .footer-links a {
+    color: #fff;
+    text-decoration: none;
   }
 
   .blur-background {
