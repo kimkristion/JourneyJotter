@@ -26,17 +26,25 @@ function initMap() {
         },
         zoom: 12,
     });
+    
+    function initModalMap(event) {
+      var modalMap = new google.maps.Map(document.getElementById('modalMap'), {
+        center: event.latLng,
+        zoom: 12,
+        draggable: false,
+        fullscreenControl: false,
+      });
 
-    var modalMap = new google.maps.Map(document.getElementById('modalMap'), {
-      center: {
-        lat: 33.8121,
-        lng: -117.9190
-      },
-      zoom: 12,
-      draggable: false,
-      fullscreenControl: false,
+      var modalMarker = new google.maps.Marker({
+        position: event.latLng,
+        map: modalMap,
+        title: 'New Marker on Modal Map'
     });
 
+      modalMap
+      openModal();
+};
+    
     infoWindow = new google.maps.InfoWindow();
 
   const locationButton = document.createElement("button");
@@ -73,7 +81,7 @@ function initMap() {
   };
 
   map.addListener('click', function(event) {
-    openModal();
+    initModalMap(event);
     markers.push(new google.maps.Marker({
       position: event.latLng,
       map: map,
