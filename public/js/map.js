@@ -9,6 +9,15 @@ var markers = [];
 var webpageBody = document.getElementsByTagName('main')[0];
 const tooltip = document.getElementById('tooltip');
 
+const stars = document.querySelectorAll(".stars i");
+stars.forEach((star, index1) => {
+  star.addEventListener("click", () => {
+    stars.forEach((star, index2) => {
+      index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
+    });
+  });
+});
+
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {
@@ -104,15 +113,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 3000)
 })
 
-window.onload = () => {
-  initMap();
+function closeModal() {
+  document.getElementById('themodal').style.display = 'none';
+  webpageBody.classList.remove('blur-background');
+  document.getElementById('experience').value = '';
+  document.getElementById('emotions').value = '';
+  document.getElementById('memories').value = '';
 }
 
-const stars = document.querySelectorAll(".stars i");
-stars.forEach((star, index1) => {
-  star.addEventListener("click", () => {
-    stars.forEach((star, index2) => {
-      index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
-    });
-  });
-});
+window.onload = () => {
+  initMap();
+};
