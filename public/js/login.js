@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Validate the login using the registered user data
     if (validateLogin(emailInput, passwordInput)) {
-      window.location.href = "/dashboard.html";
+      window.location.href = "/home";
     } else {
       alert("Invalid login credentials. Please try again.");
     }
