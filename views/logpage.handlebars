@@ -1,8 +1,12 @@
-<header>
-    <h1>'s Past Logs</h1>
-</header>
-<section class="log-list">
-    <ul>
-        <li><a href="">AYO BRO</a></li>
-    </ul>
+<section id='logpage'>
+    <div class="container">
+        <ul class="item-list" id="itemList">
+            {{#each log as |user|}}
+            <li>{{log.title}}</li>
+            {{/each}}
+        </ul>
+        <div class="display-box" id="displayBox">
+            Click on a log to view it here.
+        </div>
+    </div>
 </section>

@@ -1,0 +1,36 @@
+#logpage  {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#logpage .container {
+    display: flex;
+}
+
+#logpage .item-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#logpage .item-list li {
+    cursor: pointer;
+    padding: 10px;
+    margin: 5px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+#logpage .item-list li:hover {
+    background-color: #d0d0d0;
+}
+
+#logpage .display-box {
+    padding: 20px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+}
