@@ -1,46 +1,44 @@
-body {
+#mapsec {
   background-color: #106E71;
-}
-html, body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #E0E0E0;
-    font-weight: 400;
-    letter-spacing: 0.02rem;
-    line-height: 1.5;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #E0E0E0;
+  font-weight: 400;
+  letter-spacing: 0.02rem;
+  line-height: 1.5;
+  box-sizing: border-box;
 }
 /* Header */
-header {
+#mapsec header {
     display: flex;
     padding: .5rem;
 }
-h1 {
+#mapsec h1 {
     padding-left: 1rem;
     cursor: pointer;
     font-size: 20px;
 }
-h2 {
+#mapsec h2 {
     font-size: 2rem;
 }
-nav {
+#mapsec nav {
     margin-left: auto;
 }
 /* Navigation */
-ul {
+#mapsec ul {
     list-style: none;
     padding: 0;
     display: flex;
 }
-li {
+#mapsec li {
     margin-right: 20px;
     cursor: pointer;
     font-size: 14px;
     padding-left: 10px;
 }
 /* Container */
-.container {
+#mapsec .container {
     position: relative;
     background: linear-gradient(to bottom, #2979FF, #55C9FF);
     color: #F5F5F5;
@@ -48,7 +46,7 @@ li {
     min-height: 450px;
 }
 /* Info */
-.contentContainer {
+#mapsec .contentContainer {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -56,14 +54,14 @@ li {
     padding: 0;
     margin-top: 2rem;
 }
-.contentContainer h2 {
+#mapsec .contentContainer h2 {
     margin: .5rem;
 }
-.contentContainer p {
+#mapsec .contentContainer p {
     margin-bottom: 2rem;
 }
 /* Map */
-#map {
+#mapsec #map {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -72,7 +70,7 @@ li {
     width: 90%;
     height: 750px; /* Adjusted height to accommodate text */
 }
-#modalMap {
+#mapsec #modalMap {
   z-index: 1;
   width: 100%;
   height: 100%;
@@ -80,7 +78,7 @@ li {
   padding: 0;
 }
 /* Custom Map Control Button */
-.custom-map-control-button {
+#mapsec .custom-map-control-button {
     background-color: #fff;
     border: 0;
     border-radius: 2px;
@@ -92,10 +90,10 @@ li {
     height: 40px;
     cursor: pointer;
 }
-.custom-map-control-button:hover {
+#mapsec .custom-map-control-button:hover {
     background: rgb(235, 235, 235);
 }
-.controls {
+#mapsec .controls {
   background-color: #fff;
   border: 1px solid transparent;
   border-radius: 2px;
@@ -109,17 +107,17 @@ li {
   text-overflow: ellipsis;
   width: 300px;
 }
-.controls:focus {
+#mapsec .controls:focus {
   border-color: #4D90FE;
 }
-.controls::placeholder {
+#mapsec .controls::placeholder {
   color: #A0A0A0;
 }
-.controls {
+#mapsec .controls {
   color: #000;
 }
 /* Tooltip */
-#tooltip {
+#mapsec #tooltip {
   position: fixed;
   top: 20px; /* Adjust the distance from the top */
   right: 20px; /* Adjust the distance from the right */
@@ -130,11 +128,11 @@ li {
   display: none; /* Initially hidden */
 }
 /* Styling for text color, font size, etc. */
-#tooltip {
+#mapsec #tooltip {
   font-size: 14px;
 }
 /* Animation effect for tooltip */
-#tooltip.active {
+#mapsec #tooltip.active {
   display: block;
   animation: fadein 0.5s;
 }
@@ -142,10 +140,10 @@ li {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-li {
+#mapsec li {
     position: relative;
 }
-li::after {
+#mapsec li::after {
     content: '';
     display: block;
     width: 0;
@@ -156,23 +154,23 @@ li::after {
     transition: width 0.3s ease;
 }
 /* Animate the line on hover */
-li:hover::after {
+#mapsec li:hover::after {
     width: 90%;
 }
-.currentPage::after {
+#mapsec .currentPage::after {
     width: 75%;
 }
-.thecontent {
+#mapsec .thecontent {
    display: flex;
 }
-  .thecontent span {
+#mapsec .thecontent span {
     padding: 1rem;
   }
-  #openModal {
+#mapsec #openModal {
     width: 250px;
     padding: 0.8rem 1.4rem;
   }
-  #themodal {
+#mapsec #themodal {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -185,7 +183,7 @@ li:hover::after {
     border-radius: 0.5rem;
     z-index: 2;
   }
-  .left-side {
+  #mapsec .left-side {
     flex: 1;
     border-radius: 0.5rem;
     height: 635px;
@@ -196,14 +194,14 @@ li:hover::after {
     text-align: center;
     font-size: 60px;
   }
-  .right-side {
+#mapsec .right-side {
     display: flex;
     justify-content: center;
     flex-direction: column;
     flex: 1;
     padding: 1rem;
   }
-  .right-side input {
+  #mapsec .right-side input {
     border-radius: 0.5rem;
     display: flex;
     justify-content: center;
@@ -212,19 +210,19 @@ li:hover::after {
     box-sizing: border-box;
     width: 100%;
   }
-  #experience {
+  #mapsec #experience {
     padding-left: 1rem;
     padding: 10px 22px 10px 44px;
   }
-  #emotions {
+  #mapsec #emotions {
     padding-left: 1rem;
     padding: 10px 22px 10px 44px;
   }
-  #memories {
+  #mapsec #memories {
     padding-left: 1rem;
     padding: 10px 22px 10px 44px;
   }
-#title {
+  #mapsec #title {
   padding-top: 10px;
   padding-bottom: 10px;
   text-align: center;
@@ -235,10 +233,10 @@ li:hover::after {
   outline: none;
   font-size: 2rem;
 }
-#title::placeholder {
+#mapsec #title::placeholder {
   color: black;
 }
-  #modalSubmit {
+#mapsec #modalSubmit {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: 50%;
     display: block;
@@ -249,15 +247,15 @@ li:hover::after {
     border-radius: 0.5rem;
     cursor: pointer;
   }
-  #modalSubmit a {
+  #mapsec #modalSubmit a {
     color: var(--base);
     text-decoration: none;
   }
-  #closeBtn {
+  #mapsec #closeBtn {
     padding-right: .5rem;
     cursor: pointer;
   }
-.rating-box {
+  #mapsec .rating-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -288,7 +286,7 @@ li:hover::after {
   .start i:hover {
     color: red;
   }
-  footer {
+  #mapsec  footer {
     position: fixed;
       bottom: 0;
       width: 100%;
