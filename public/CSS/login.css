@@ -1,35 +1,37 @@
   /* Apply styles to the body of the page */
   @import url('https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque&family=Bungee+Spice&family=Crimson+Text&family=Nabla&family=Playfair+Display&family=Ubuntu:wght@300;700&display=swap');
 
-  .video-container {
+  #Login .video-container {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1; /* Place it behind other content */
+      z-index: 0; /* Place it behind other content */
       overflow: hidden; /* Hide the horizontal scroll bar */
   }
   
   /* Styles video element */
-  video{
+  #Login video{
       object-fit: cover;
       width: 100%;
       height: 100%;
   }
   
-   #Login .unique-animation{
-      margin-top: 250px;
-      font-family: 'playfair display';
-      letter-spacing: 10px;
-      color: gold;
-      text-align: center;
-      font-size: 3.6rem;
-      font-weight:900;
-      overflow: hidden; /* Hide overflowing text */
-      white-space: nowrap; /* Prevent line breaks in the text */
-      height: 0; /* Start with no height (hidden) */
-      animation: typing 2.7s steps(100) forwards; /* Use "typing" animation */
+    #Login .unique-animation {
+        margin-top: 250px;
+        font-family: 'playfair display';
+        letter-spacing: 10px;
+        color: gold;
+        text-align: center;
+        font-size: 3.6rem;
+        font-weight: 900;
+        overflow: hidden;
+        white-space: nowrap;
+        height: 3em; /* Start with a visible height */
+        animation: typing 2.7s steps(100) forwards;
+        z-index: 10;
+        position: relative;
     }
     
     /* Define the animation keyframes for typing effect */
@@ -49,7 +51,7 @@
       }
   }
   
-   .text {
+  #Login .text {
       font-family: 'playfair display';
       text-align: center;
       color: white;
@@ -57,7 +59,7 @@
   }
     
     
-  body {
+  #Login body {
       font-family: 'Arial', sans-serif;
       background: #f0f0f0;
       margin: 0;
@@ -66,7 +68,7 @@
   }
   
   /* Center the content within the page */
-  .row {
+  #Login .row {
       display: flex;
       justify-content:space-around;
       align-items: center;
@@ -76,7 +78,7 @@
   }
   
   
-  .login-card {
+  #Login .login-card {
       background: linear-gradient(rgb(9, 9, 15),rgb(16, 16, 25),navy,#0056b3, #0F52BA,#007bff,#84b7ee, #ccc, #fff);
       border: 3px solid white;
       padding: 50px;
@@ -91,7 +93,7 @@
   }
   
   /* Add hover effect */
-  .login-card:hover {
+  #Login .login-card:hover {
       transform: scale(1.07); /* Scale the card up on hover */
       cursor: pointer; /* Change cursor on hover if desired */
       border: 3px solid gold;
@@ -99,7 +101,7 @@
     
   
   /* Style page titles (Login and Signup) */
-  .page-title {
+  #Login .page-title {
       font-size: 24px;
       margin: 0 0 20px;
       color: gold;
@@ -108,18 +110,18 @@
   }
   
   /* Style form elements */
-  .form-group {
+  #Login .form-group {
       margin-bottom: 15px;
       color: #fff;
       font-family: 'playfair display';
   }
   
-  label {
+  #Login label {
       display: block;
       font-weight: bold;
   }
   
-  .form-input {
+  #Login .form-input {
       width: 100%;
       padding: 10px;
       border: 1px solid white;
@@ -128,7 +130,7 @@
   }
   
   /* Style buttons */
-   .btn {
+  #Login .btn {
       font-family: 'playfair display';
       display: inline-block;
       padding: 10px 20px;
@@ -141,17 +143,17 @@
      
   }
   
-  .btn:hover {
+  #Login .btn:hover {
       background-color: gold;
       border-radius: 3px solid gold;
   }
   @media (max-width: 768px) {
-      .row {
+    #Login .row {
           flex-direction: column; /* Stack elements vertically on smaller screens */
           align-items: center;
       }
   
-      .login-card {
+      #Login .login-card {
           width: 90%; /* Adjust the width for smaller screens */
       }
   }

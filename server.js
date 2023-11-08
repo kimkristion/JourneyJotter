@@ -29,7 +29,8 @@ app.set('view engine', 'handlebars');
 app.use(express.static(path.join(__dirname, './public')));
 app.use(require('./controllers/home-routes'));
 app.use(require('./controllers/login-routes'));
-app.use(require('./controllers/map-routes'))
+app.use(require('./controllers/map-routes'));
+app.use(require('./controllers/logpage-routes'));
 
 app.use((req, res) => {
     res.status(404).end();
