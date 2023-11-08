@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- google maps connection  -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkUkBVZorbjWzE4Wom0x1iQyFWkrzG74g&callback=initMap&libraries=maps"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkUkBVZorbjWzE4Wom0x1iQyFWkrzG74g&callback=initMap&libraries=maps,places,geometry"></script>
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="./public/CSS/map.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap">
     <title>JourneyJotter</title>
 </head>
-
 <body>
   <main>
     <div class="container">
@@ -24,17 +23,17 @@
                   <li href="#">Past Logs</li>
                   <li href="#">Favorite Logs</li>
                   <li href="#">Poor Reviews</li>
+                  <li href="#">Logout</li>
               </ul>
           </nav>
       </header>
       <div class="contentContainer">
           <h2>Map Your Emotions</h2>
           <p>an interactive platform where your feelings meet the world map. Explore, click, and express your emotions about any location, turning your journeys into vibrant stories. </p>
+          <input id="pac-input" class="controls" type="text" placeholder="Search Box">
           <div id="map"></div> <!-- Google Maps will be rendered here -->
       </div>
-      <button class="start" id="startBtn">Get Started</button>
   </main>
-        
         <!-- modal -->
         <div id="themodal" class="modal" style="display: none;">
             <div class="thecontent">
@@ -42,7 +41,7 @@
                 <div id="modalMap"></div> <!-- Google Maps within the modal will be rendered -->
               </div>
               <div class="right-side">
-                <form id="foodForm">
+                <form id="userForm">
                   <input type="text" placeholder="Title" id="title">
                   <input type="text" placeholder="How would you rate your overall experience?" id="experience">
                   <input type="text" placeholder="Describe what emotions you felt here? " id="emotions">
@@ -50,11 +49,11 @@
                   <div class="rating-box">
                     <header>Rate your experience</header>
                     <div class="stars">
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star" data-rating="1"></i>
+                      <i class="fa-solid fa-star" data-rating="2"></i>
+                      <i class="fa-solid fa-star" data-rating="3"></i>
+                      <i class="fa-solid fa-star" data-rating="4"></i>
+                      <i class="fa-solid fa-star" data-rating="5"></i>
                     </div>
                   </div>
                   <button type="submit" id="modalSubmit">Submit</button>
@@ -64,18 +63,19 @@
             </div>
           </div>
     </div>
-
+    <!-- need to fix css <footer>
+      <div class="footer-content">
+        <p>&copy; 2023 JourneyJotter.com All rights reserved.</p>
+        <ul class="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </footer> -->
     <!-- In progress: A tooltip, likley for instructions or information -->
-    <!-- <div id="tooltip">Click on the map to add a marker</div> -->
-
+     <div id="tooltip">Click on the map to start an entry</div>
 </body>
 <script src="./public/js/map.js"></script> <!-- JavaScript file handling -->
-
 </html>
-
-
-
-
-
-
-
