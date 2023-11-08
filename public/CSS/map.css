@@ -1,4 +1,4 @@
-
+/*
 body {
   background-color: #106E71;
 }
@@ -14,7 +14,7 @@ html, body {
     box-sizing: border-box;
 }
 
-/* Header */
+/* Header *//*
 header {
     display: flex;
     padding: .5rem;
@@ -34,7 +34,7 @@ nav {
     margin-left: auto;
 }
 
-/* Navigation */
+/* Navigation *//*
 ul {
     list-style: none;
     padding: 0;
@@ -48,7 +48,7 @@ li {
     padding-left: 10px;
 }
 
-/* Container */
+/* Container *//*
 .container {
     position: relative;
     background: linear-gradient(to bottom, #2979FF, #55C9FF);
@@ -57,7 +57,7 @@ li {
     min-height: 450px;
 }
 
-/* Info */
+/* Info *//*
 .contentContainer {
     display: flex;
     justify-content: center;
@@ -76,7 +76,7 @@ li {
 }
 
 
-/* Map */
+/* Map *//*
 #map {
     position: absolute;
     top: 50%;
@@ -84,7 +84,7 @@ li {
     transform: translate(-50%, 25%);
     z-index: 1;
     width: 90%;
-    height: 750px; /* Adjusted height to accommodate text */
+    height: 750px; /* Adjusted height to accommodate text *//*
 }
 
 #modalMap {
@@ -95,7 +95,7 @@ li {
   padding: 0;
 }
 
-/* Custom Map Control Button */
+/* Custom Map Control Button *//*
 .custom-map-control-button {
     background-color: #fff;
     border: 0;
@@ -113,7 +113,7 @@ li {
     background: rgb(235, 235, 235);
 }
 
-/* Tooltip */
+/* Tooltip *//*
 #tooltip {
     position: absolute;
     top: 20px; 
@@ -140,7 +140,7 @@ li::after {
     transition: width 0.3s ease; 
 }
 
-/* Animate the line on hover */
+/* Animate the line on hover *//*
 li:hover::after {
     width: 90%; 
 }
@@ -176,7 +176,7 @@ li:hover::after {
     transform: translate(-50%, -50%);
     max-width: 50%;
     max-height: 50%px;
-    width: 90%; /* Adjust width if needed */
+    width: 90%; /* Adjust width if needed *//*
     border: 2px solid #F7E7CE;
     background: linear-gradient(to bottom, #2979FF, #55C9FF);
     border-radius: 0.5rem;
@@ -308,3 +308,328 @@ li:hover::after {
     user-select: none; 
     transition: filter 0.3s ease; 
 }
+*/
+body {
+  background-color: #106E71;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #E0E0E0;
+    font-weight: 400;
+    letter-spacing: 0.02rem;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+/* Header */
+header {
+    display: flex;
+    padding: .5rem;
+}
+h1 {
+    padding-left: 1rem;
+    cursor: pointer;
+    font-size: 20px;
+}
+h2 {
+    font-size: 2rem;
+}
+nav {
+    margin-left: auto;
+}
+/* Navigation */
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+li {
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    padding-left: 10px;
+}
+/* Container */
+.container {
+    position: relative;
+    background: linear-gradient(to bottom, #2979FF, #55C9FF);
+    color: #F5F5F5;
+    padding: 1rem;
+    min-height: 450px;
+}
+/* Info */
+.contentContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0;
+    margin-top: 2rem;
+}
+.contentContainer h2 {
+    margin: .5rem;
+}
+.contentContainer p {
+    margin-bottom: 2rem;
+}
+/* Map */
+#map {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 25%);
+    z-index: 1;
+    width: 90%;
+    height: 750px; /* Adjusted height to accommodate text */
+}
+#modalMap {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+/* Custom Map Control Button */
+.custom-map-control-button {
+    background-color: #fff;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+    margin: 10px;
+    padding: 0 0.5em;
+    font: 400 18px Roboto, Arial, sans-serif;
+    overflow: hidden;
+    height: 40px;
+    cursor: pointer;
+}
+.custom-map-control-button:hover {
+    background: rgb(235, 235, 235);
+}
+.controls {
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  margin-top: 10px;
+  outline: none;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+.controls:focus {
+  border-color: #4D90FE;
+}
+.controls::placeholder {
+  color: #A0A0A0;
+}
+.controls {
+  color: #000;
+}
+/* Tooltip */
+#tooltip {
+  position: fixed;
+  top: 20px; /* Adjust the distance from the top */
+  right: 20px; /* Adjust the distance from the right */
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  display: none; /* Initially hidden */
+}
+/* Styling for text color, font size, etc. */
+#tooltip {
+  font-size: 14px;
+}
+/* Animation effect for tooltip */
+#tooltip.active {
+  display: block;
+  animation: fadein 0.5s;
+}
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+li {
+    position: relative;
+}
+li::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #D35400;
+    position: absolute;
+    bottom: -5px;
+    transition: width 0.3s ease;
+}
+/* Animate the line on hover */
+li:hover::after {
+    width: 90%;
+}
+.currentPage::after {
+    width: 75%;
+}
+.thecontent {
+   display: flex;
+}
+  .thecontent span {
+    padding: 1rem;
+  }
+  #openModal {
+    width: 250px;
+    padding: 0.8rem 1.4rem;
+  }
+  #themodal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 50%;
+    max-height: 50%px;
+    width: 90%; /* Adjust width if needed */
+    border: 2px solid #F7E7CE;
+    background: linear-gradient(to bottom, #2979FF, #55C9FF);
+    border-radius: 0.5rem;
+    z-index: 2;
+  }
+  .left-side {
+    flex: 1;
+    border-radius: 0.5rem;
+    height: 635px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 60px;
+  }
+  .right-side {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
+    padding: 1rem;
+  }
+  .right-side input {
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    padding: 5px 10px;
+    margin-bottom: 2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  #experience {
+    padding-left: 1rem;
+    padding: 10px 22px 10px 44px;
+  }
+  #emotions {
+    padding-left: 1rem;
+    padding: 10px 22px 10px 44px;
+  }
+  #memories {
+    padding-left: 1rem;
+    padding: 10px 22px 10px 44px;
+  }
+#title {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid black;
+  background: none;
+  outline: none;
+  font-size: 2rem;
+}
+#title::placeholder {
+  color: black;
+}
+  #modalSubmit {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 50%;
+    display: block;
+    justify-content: center;
+    margin-left: 25%;
+    padding: 1rem;
+    text-transform: lowercase;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  #modalSubmit a {
+    color: var(--base);
+    text-decoration: none;
+  }
+  #closeBtn {
+    padding-right: .5rem;
+    cursor: pointer;
+  }
+.rating-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+}
+  .rating-box header {
+    font-size: 22px;
+    color: #DADADA;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .rating-box .stars {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+  .stars i {
+    color: #E6E6E6;
+    font-size: 35px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  .stars i.active {
+    color: #FF9C1A;
+  }
+  .start i:hover {
+    color: red;
+  }
+  footer {
+    position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+  }
+  /* Footer content styles */
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  /* Footer links styles */
+  .footer-links {
+    list-style: none;
+    display: flex;
+    margin-top: 10px;
+  }
+  .footer-links li {
+    margin-right: 15px;
+  }
+  .footer-links a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .blur-background {
+    filter: blur(3px);
+    pointer-events: none;
+    user-select: none;
+    transition: filter 0.3s ease;
+} 
