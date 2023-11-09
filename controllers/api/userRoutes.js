@@ -1,14 +1,21 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection'); // Adjust the import path as needed
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
+const User = require('../../models');
 
-// GET route to render the login form
-router.get('/', async (req, res) => {
-    res.render('login');
+router.post('/', async (req, res) => {
+    try {
+        const userData = await User.create(req.body);
+
+        req.session.save(() => {
+            req.session.user_id = userData.id;
+            req.session.logged_in = true;
+
+            res.status(200).json(userData);
+        });
+    } catch (err) {
+        res.status(400).json(err);
+    }
 });
 
-// POST route to handle form submissions
 router.post('/login', async (req, res) => {
     try {
         const userData = await User.findOne({ where: { email: req.body.email } });
