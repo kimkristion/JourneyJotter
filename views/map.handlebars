@@ -1,68 +1,81 @@
-<section id="mapsec">
-  <main>
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+  <section id="Mapsec">
     <div class="container">
       <header>
-        <h1>JourneyJotter</h1>
+        <h1 id="homepageLogoRoute">JourneyJotter</h1>
         <nav>
           <ul>
-            <li href="#">Home</li>
+            <li id="homepage">Home</li>
             <li class="currentPage">Map</li>
             <li href="#">Past Logs</li>
             <li href="#">Favorite Logs</li>
             <li href="#">Poor Reviews</li>
-            <li href="#">Logout</li>
+            <li id="logout">Logout</li>
           </ul>
         </nav>
       </header>
-      <div class="contentContainer">
-        <h2>Map Your Emotions</h2>
-        <p>an interactive platform where your feelings meet the world map. Explore, click, and express your emotions
-          about any location, turning your journeys into vibrant stories. </p>
-        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-        <div id="map"></div> <!-- Google Maps will be rendered here -->
-      </div>
-  </main>
-  <!-- modal -->
-  <div id="themodal" class="modal" style="display: none;">
-    <div class="thecontent">
-      <div class="left-side">
-        <div id="modalMap"></div> <!-- Google Maps within the modal will be rendered -->
-      </div>
-      <div class="right-side">
-        <form id="userForm">
-          <input type="text" placeholder="Title" id="title">
-          <input type="text" placeholder="How would you rate your overall experience?" id="experience">
-          <input type="text" placeholder="Describe what emotions you felt here? " id="emotions">
-          <input type="text" placeholder="What was the most memorable part of your visit?" id="memories">
-          <div class="rating-box">
-            <header>Rate your experience</header>
-            <div class="stars">
-              <i class="fa-solid fa-star" data-rating="1"></i>
-              <i class="fa-solid fa-star" data-rating="2"></i>
-              <i class="fa-solid fa-star" data-rating="3"></i>
-              <i class="fa-solid fa-star" data-rating="4"></i>
-              <i class="fa-solid fa-star" data-rating="5"></i>
+      <main>
+        <div class="contentContainer">
+          <h2>Map Your Emotions</h2>
+          <p>an interactive platform where your feelings meet the world map. Explore, click, and express your emotions
+            about any location, turning your journeys into vibrant stories. </p>
+          <!-- <input id="pac-input" class="controls" type="text" placeholder="Search Box"> -->
+          <button id="modalStart">Log Experience</button>
+          <div id="map"></div> <!-- Google Maps will be rendered here -->
+        </div>
+        <!-- modal -->
+        <div id="themodal" class="modal" style="display: none;">
+          <div class="thecontent">
+            <div class="left-side">
+              <div id="modalMap"></div> <!-- Google Maps within the modal will be rendered -->
             </div>
+            <div class="right-side">
+              <form id="userForm">
+                <input type="text" placeholder="Title" id="title">
+                <input type="text" placeholder="How would you rate your overall experience?" id="experience">
+                <input type="text" placeholder="Describe what emotions you felt here? " id="emotions">
+                <input type="text" placeholder="What was the most memorable part of your visit?" id="memories">
+                <div class="rating-box">
+                  <header>Rate your experience</header>
+                  <div class="stars">
+                    <i class="fa-solid fa-star" data-rating="1"></i>
+                    <i class="fa-solid fa-star" data-rating="2"></i>
+                    <i class="fa-solid fa-star" data-rating="3"></i>
+                    <i class="fa-solid fa-star" data-rating="4"></i>
+                    <i class="fa-solid fa-star" data-rating="5"></i>
+                  </div>
+                </div>
+                <button type="submit" id="modalSubmit">Submit</button>
+              </form>
+            </div>
+            <h3 id="closeBtn">&times;</h3> <!-- Close modal for the modal -->
           </div>
-          <button type="submit" id="modalSubmit">Submit</button>
-        </form>
-      </div>
-      <h3 onclick="closeModal()" id="closeBtn">&times</h3> <!-- Close modal for the modal -->
+        </div>
+      </main>
+      <!-- In progress: A tooltip, likely for instructions or information -->
+      <div id="tooltip">Click on the map to start an entry</div>
+      <script defer src="/js/map.js"></script> <!-- JavaScript file handling -->
+
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          document.getElementById('modalStart').addEventListener('click', () => {
+            openModal(); // Assuming openModal is a function in your JavaScript handling the modal opening
+          });
+
+          document.getElementById('closeBtn').addEventListener('click', closeModal);
+
+          document.getElementById('modalSubmit').addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent the default form submission behavior
+
+            // Your existing code for handling form submission
+          });
+        });
+      </script>
     </div>
-  </div>
-  </div>
-  <!-- need to fix css <footer>
-      <div class="footer-content">
-        <p>&copy; 2023 JourneyJotter.com All rights reserved.</p>
-        <ul class="footer-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-    </footer> -->
-  <!-- In progress: A tooltip, likley for instructions or information -->
-  <div id="tooltip">Click on the map to start an entry</div>
-  <script src="/js/map.js"></script> <!-- JavaScript file handling -->
-</section>
+  </section>
+</body>
+
+</html>
