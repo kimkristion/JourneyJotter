@@ -185,3 +185,13 @@ function modalSubmit() {
 document.getElementById('modalSubmit', () => {
   console.log('he');
 });
+
+const home = () => {
+  document.location.replace('/home');
+};
+const logout = () => {
+  document.location.replace('/');
+};
+document.querySelector('#homepageLogoRoute').addEventListener('click', home);
+document.querySelector('#homepage').addEventListener('click', home);
+document.querySelector('#logout').addEventListener('click', logout);
