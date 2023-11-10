@@ -4,7 +4,10 @@ let map, infoWindow, modalMap;
 var markers = [];
 var webpageBody = document.getElementsByTagName('main')[0];
 const tooltip = document.getElementById('tooltip');
-
+const storedMarkers = localStorage.getItem('markers');
+if (storedMarkers) {
+  markers = JSON.parse(storedMarkers);
+}
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {
@@ -13,7 +16,25 @@ function initMap() {
     },
     zoom: 12,
   });
-
+  map.addListener('click', function (event) {
+    initModalMap(event);
+    markers.push(new google.maps.Marker({
+      position: event.latLng,
+      map: map,
+      title: 'New Marker'
+    }));
+    markers.forEach(function (marker) {
+      marker.addListener('click', () => {
+        if (window.confirm("Are you sure you want to delete this marker?")) {
+          marker.setMap(null);
+          const index = markers.indexOf(marker);
+          if (index > -1) {
+            markers.splice(index, 1);
+          }
+        }
+      });
+    });
+  });
   function initModalMap(event) {
     modalMap = new google.maps.Map(document.getElementById('modalMap'), {
       center: event.latLng,
@@ -26,16 +47,13 @@ function initMap() {
       map: modalMap,
       title: document.getElementById('title').value
     });
-
     openModal();
   }
-
   infoWindow = new google.maps.InfoWindow();
   const locationButton = document.createElement("button");
   locationButton.textContent = "Use Current Location";
   locationButton.classList.add("custom-map-control-button");
   map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
-
   locationButton.addEventListener("click", () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -55,15 +73,12 @@ function initMap() {
       handleLocationError(false, infoWindow, map.getCenter());
     }
   });
-
   const input = document.getElementById('pac-input');
   const searchBox = new google.maps.places.SearchBox(input);
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
   map.addListener('bounds_changed', function () {
     searchBox.setBounds(map.getBounds());
   });
-
   searchBox.addListener('places_changed', function () {
     const places = searchBox.getPlaces();
     if (places.length === 0) {
@@ -83,29 +98,7 @@ function initMap() {
     });
     map.fitBounds(bounds);
   });
-
-  map.addListener('click', function (event) {
-    initModalMap(event);
-    markers.push(new google.maps.Marker({
-      position: event.latLng,
-      map: map,
-      title: 'New Marker'
-    }));
-
-    markers.forEach(function (marker) {
-      marker.addListener('click', () => {
-        if (window.confirm("Are you sure you want to delete this marker?")) {
-          marker.setMap(null);
-          const index = markers.indexOf(marker);
-          if (index > -1) {
-            markers.splice(index, 1);
-          }
-        }
-      });
-    });
-  });
 }
-
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
   infoWindow.setContent(
@@ -115,12 +108,10 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   );
   infoWindow.open(map);
 }
-
 function openModal() {
   document.getElementById('themodal').style.display = 'block';
   // Do something with modalMap if necessary
 }
-
 function closeModal() {
   document.getElementById('themodal').style.display = 'none';
   document.getElementById('title').value = '';
@@ -128,14 +119,12 @@ function closeModal() {
   document.getElementById('emotions').value = '';
   document.getElementById('memories').value = '';
 }
-
 document.addEventListener('DOMContentLoaded', () => {
   tooltip.style.display = 'block';
   setTimeout(function () {
     tooltip.style.display = 'none';
   }, 3000);
 });
-
 const stars = document.querySelectorAll(".stars i");
 stars.forEach((star, index1) => {
   star.addEventListener("click", () => {
@@ -146,7 +135,6 @@ stars.forEach((star, index1) => {
     });
   });
 });
-
 document.getElementById('modalSubmit').addEventListener('click', () => {
   stars.forEach(star => {
     star.addEventListener('click', () => {
@@ -154,7 +142,6 @@ document.getElementById('modalSubmit').addEventListener('click', () => {
       console.log('Selected rating: ', selectedRating);
     });
   });
-
   const title = document.getElementById('title').value;
   const experience = document.getElementById('experience').value;
   const emotions = document.getElementById('emotions').value;
@@ -167,7 +154,6 @@ document.getElementById('modalSubmit').addEventListener('click', () => {
     memories,
     starRating
   };
-
   fetch('submitFormData', {
     method: 'POST',
     headers: {
@@ -182,9 +168,4 @@ document.getElementById('modalSubmit').addEventListener('click', () => {
       console.error('Error: ', error);
     });
 });
-
 document.addEventListener('DOMContentLoaded', initMap());
-
-
-
-
