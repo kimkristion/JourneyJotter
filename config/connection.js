@@ -14,7 +14,7 @@ if (process.env.JAWSDB_URL) {
                 rejectUnauthorized: false,
             },
         },
-    });
+    };
 } else {
 
     sequelize = new Sequelize(
